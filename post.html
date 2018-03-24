@@ -20,6 +20,9 @@
 
     <!-- Custom styles for this template -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://prismjs.com/themes/prism-okaidia.css"/>
+    <script type='text/javascript' src="http://prismjs.com/prism.js"></script>
+
 
   </head>
 
@@ -121,7 +124,23 @@ pip install --user pipenv</br></li>
                  <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/#virtualenvironments-ref"</a>
             </p>
     
-    <p>For learning about its functioning , I wrote a code to automate the process for logging into Github account.</p>
+            <p>For learning about its functioning , I wrote a code to automate the process for logging into Github account.</p>
+
+<pre class='language-python'>
+<code>
+import requests
+with requests.Session() as c:
+    
+    url="https://github.com/login"
+    email=input("Enter you email: ")
+    PASSWORD=input("Enter your password: ")
+    c.get(url)
+    login_data=dict(username=email, password=PASSWORD)
+    c.post(url,data=login_data)
+    page=c.get("https://github.com/minkushjain?tab=repositories")
+    print(page.content)
+</code>
+</pre>
               
             
             
