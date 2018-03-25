@@ -140,8 +140,7 @@ with requests.Session() as c:
     page=c.get("https://github.com/minkushjain?tab=repositories")
     print(page.content)
 </code>
-</pre>
-              
+</pre>        
       <p>
 The c.get pings a website for information at that specific url (making request). The web server responds and you can collect the content using the ‘get’ function.
 This could successfully login into my github account. I also tried some other tasks like downloading data (media) from any website.
@@ -161,13 +160,88 @@ with requests.Session() as c:
 </pre>
 </p>
 <p>The email data had to be entered into the <a href="https://lists.debian.org/cgi-bin/subscribe.pl">https://lists.debian.org/cgi-bin/subscribe.pl</a> link as it can be discovered from the source page of the Mailing list web page. </p>
-<img class="img-fluid" src="img/Screenshot (8).png" alt="">
+<img class="img-fluid" src="img/Screenshot (10).png" alt="">
            
             <span class="caption text-muted">Source code of the link highlighting the link.</span>
+<p>After importing requests module, it asks the user to enter his email. Requests allow us to enter the data for the url as a dictionary of strings, which has been stored in login_data.</p>
+<p>Now, we have Response object called ‘c’ using which we can get all the information.</br>
+eg. If you want to enter key1=value1 and key2=value2 into httpbin.org/get , then you can store these values in a dictionary named ‘user_data’ and then enter it by:
+</p>
+<p>
+<pre class='language-python'>
+<code> 
+user_data = {'key1': 'value1', 'key2': 'value2'}
+r = requests.get('http://httpbin.org/get', params=user_data)
+</code>
+</pre>
+</p>
+<p>This is how you can enter data through post method of HTTPS on a web page.</br>
+<pre class='language-python'>
+<code>c.post(url,data=login_data,stream=True)</code></pre></p>
+<p>I learned that HTTP has 2 types for inputting data: POST and GET
+</p>
+<ul>
+  <li>‘Get’ request includes all the user data into the URL. These parameters are shown in the URL and hence get stored in history
+</li>
+  <li>‘Post’ request submits the user data into a specific resource instead of showing up in the URL, hence it is a more secure way.</li>
+</ul>
+<p>The Debian mailing list uses POST method since the login data doesn't get shown in the url of the website.
+</p>
 
-            <p>Placeholder text by
-              <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
-              <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+<h2 class="section-heading">Confirming Subscription through a mail reply</h2>
+<p>After the clicking the subscribe button in the previous step, the user receives a mail. The user has to reply to that mail with Subject String as specified.
+To simplify this purpose, I learned about SMTP protocol (Simple Mail Transfer Protocol)
+</p>
+<p>This is the basic code for sending a mail from one email to another using SMTP Protocol. It is basically a IP protocol used in sending and receiving e-mail.</p>
+<pre class='language-python'>
+<code>
+import smtplib
+server=smtplib.SMTP("smtp.gmail.com",587)
+server.starttls()
+server.login("your_email","password")
+msg="Hello...sending message from smtp server protocol"
+server.sendmail("your_email","receiver_mail",msg)
+server.quit()
+</code>
+</pre>
+<p>The server.login syntax intakes your username and password and logins into your mail.</br>
+<pre class='language-python'>
+<code>
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+</code>
+</pre></br>
+This is a must for sending a mail with customized subject.</br>The ‘587’ is the port through which the email is being sent. You can use other ports as well but every port leads to a different output!</br>
+<p>I got multiple errors in the first code, stating that the authorization failed and it couldn’t connect to the network.
+</br>To fix these, I allowed “installation of less secure 3rd party apps” in gmail settings. The statement “server.starttls()” also has to be added before authorisation into your account to get it working. 
+</p>
+<h4>CODE:</h4>
+<pre class='language-python'>
+<code>
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+a=input("Enter the code of the subject you received in your mail: ")
+b="CONFIRM "+a
+fromaddr="sender_email"
+toaddr="debian-outreach-request@lists.debian.org"
+msg = MIMEMultipart()
+msg['From'] = fromaddr
+msg['To'] = toaddr
+msg['Subject'] = b
+ 
+body = "Subscribe"
+msg.attach(MIMEText(body, 'plain'))
+ 
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.starttls()
+server.login(fromaddr, "sender_password")
+text = msg.as_string()
+server.sendmail(fromaddr, toaddr, text)
+server.quit()
+</code>
+</pre>
+<p>The mail could be sent from any email id regardless of user’s email. After entering the Subject string in the mail, it composes a mail to ‘debian-outreach-request@lists.debian.org’ and eventually the user gets subscribed. I have concatenated the user code with 'CONFIRM' string for the subject of the mail. </p>
           </div>
         </div>
       </div>
