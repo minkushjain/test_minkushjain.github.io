@@ -78,12 +78,12 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <p>I am applying for Google Summer of Code this year under Debian. I got to know about this programme through my brother, who was selected for GSOC to contribute to a Debian project last year. He really inspired me to apply to GSOC, even though I hate to admit this on Social media :P  GSoC is a great opportunity for students like me, to start contributing to open source softwares under the guidance of mentors. 
-              This motivated me to give  my best and apply for this year.</p>
+            <p>I am applying for Google Summer of Code this year under Debian. I got to know about this programme through my brother, who was selected for GSOC to contribute to a Debian project last year. He really inspired me to apply to GSOC, even though I hate to admit this on social media :P  GSoC is a great opportunity for students like me, to start contributing to open source softwares under the guidance of mentors.</p>
 
-            <p> I decided to work on the project <a href="https://wiki.debian.org/SummerOfCode2018/Projects/WizardForStudentsAndNewInterns">“Wizard/GUI helping students get started”</a> under Debian. It aimed at developing a Python package and resources which would help the newcomers in the open source community to get the required software setup and tools easily to get started. This project specially interests me as I feel it overcomes the challenges and simplifies the process for students like me face when starting with open source contribution and setting up the environment.</p> 
+            <p>This motivated me to give my best and apply  this year. I decided to work on the project <a href="https://wiki.debian.org/SummerOfCode2018/Projects/WizardForStudentsAndNewInterns">“Wizard/GUI helping students get started”</a> under Debian. It aimed at developing a Python package which would simplify the process for new applicants in the open source community to get the required setup. For example, installing useful development tools on their computer, subscribing to relevant mailing lists. This project specially interests me as I feel it overcomes the challenges I faced when starting with open source contribution and setting up the environment. 
 
-            <p>To make a meaningful contribution towards this project, I decided to create a concise Python script. This script automates the process of subscribing to relevant Debian mailing list by sending your email and then confirming it through a customised reply by mail. The input would be entered by the user in a PyQt Based GUI application. Initially, I wasn’t aware of technologies such as PyQt, but I overcame this barrier when I started working on it. I feel really motivated to go along with my work on this project. For getting started with GSoC, I would highly recommend reading the article by Daniel Pocock (Debian mentor), since it personally helped me. https://danielpocock.com/getting-selected-for-google-summer-of-code-2016</p>
+            <p>To make a meaningful contribution towards this project, I decided to create  a concise Python script. This script automates the process of subscribing to relevant Debian mailing list by sending your email and then confirming it through a customised reply by mail. The input would be entered by the user in a PyQt Based GUI application. Initially, I wasn’t aware of technologies such as PyQt, but I overcame this barrier when I started working on it. 
+For getting started with GSoC, I would highly recommend reading the <a href="https://danielpocock.com/getting-selected-for-google-summer-of-code-2016">article</a> by Daniel Pocock (Debian mentor), since it personally helped me.
 
             <p>The blog explains how one could start contributing to the open source community by creating a github account, making a blog, IRC, mailing lists etc.</p>
 
@@ -91,7 +91,7 @@
 
             <blockquote class="blockquote">Git is the fundamental requirement for collaborating  on open source projects. It’s a “Distributed Version control” which allows people to work on same project and share the code and everyone knows what changes you have made.</blockquote>
 
-            <p>Initially I was not well versed with Git but during this application period, I learned important concepts by watching youtube videos and reading blogs. It helped me Learn the basic concepts such as repositories, git command prompt, forking, pull requests etc. I also completed a quick 15 minute course on https://try.github.io for learning the command prompts. While learning Git, all the commands and concepts may seem confusing and trivial, but it comes naturally when you start using it for projects.</p>
+            <p>Initially I was not well versed with Git but during this application period, I learned important concepts by watching youtube videos and reading blogs. It helped me Learn the basic concepts such as repositories, git command prompt, forking, pull requests etc. I also completed a quick 15 minute course on <a href="https://try.github.io">https://try.github.io</a> for learning the command prompts. While learning Git, all the commands and concepts may seem confusing and trivial, but it comes naturally when you start using it for projects.</p>
 
             <h3 class="section-heading">PROJECT</h3>
 
@@ -103,7 +103,7 @@
             </ul>  
             </p>
             <h2 class="section-heading">Submitting user email on the website</h2>
-            <p>To subscribe to the mailing list,  I tried to enter my email on the website “https://lists.debian.org/debian-outreach/” and clicked on the subscribe button through a python script. On successful implementation, the user should get a mail confirming the same.</p>
+            <p>To subscribe to the mailing list,  I tried to enter my email on <a href=“https://lists.debian.org/debian-outreach/”>'Debain-oureach website'</a> and clicked on the subscribe button through a python script. On successful implementation, the user should get a mail confirming the same.</p>
             
               <img class="img-fluid" src="img/Screenshot (8).png" alt="">
            
@@ -114,8 +114,8 @@
             <p>The ‘requests’ module can be imported into python library through command prompt by two ways:
               <ul>
                 <li><b>$ pipenv install requests</b> : This command uses “pipenv” which is a ‘dependency manager’ for python. It’s a higher level tool which essentially simplifies the process of installing libraries.</br>Use pip to install Pipenv:
-pip install --user pipenv</br></li>
-          <li><b>$ pip install requests</b> : ‘pip’ is the default method used to install software packages written in python</br></li>
+          pip install --user pipenv</li></br></br>
+          <li><b>$ pip install requests</b> : ‘pip’ is the default method used to install software packages written in python</li>
            I personally prefer the 2nd method as it is straightforward and installs basic packages without any hassles.
             </p>
             <p>Also, I installed Git Bash, a shell which works in the same way as the native Windows' Command Prompt, but it is more powerful and can do additional tasks like search command history, make user-defined functions etc.</p>
@@ -142,8 +142,29 @@ with requests.Session() as c:
 </code>
 </pre>
               
-            
-            
+      <p>
+The c.get pings a website for information at that specific url (making request). The web server responds and you can collect the content using the ‘get’ function.
+This could successfully login into my github account. I also tried some other tasks like downloading data (media) from any website.
+      </p>     
+  <p>Next, for the original task, we had to enter your email in this <a href="https://lists.debian.org/debian-outreach/link">link</a>.</p>
+  <p>CODE: </br>
+<pre class='language-python'>
+<code> 
+import requests
+with requests.Session() as c:
+    url="https://lists.debian.org/cgi-bin/subscribe.pl"
+    email=input("Enter you email: ")
+    c.get(url)
+    login_data={'user_email':email, 'list':'debian-outreach', 'action':'Subscribe'}
+    c.post(url,data=login_data,stream=True)
+</code>
+</pre>
+</p>
+<p>The email data had to be entered into the <a href="https://lists.debian.org/cgi-bin/subscribe.pl">https://lists.debian.org/cgi-bin/subscribe.pl</a> link as it can be discovered from the source page of the Mailing list web page. </p>
+<img class="img-fluid" src="img/Screenshot (8).png" alt="">
+           
+            <span class="caption text-muted">Source code of the link highlighting the link.</span>
+
             <p>Placeholder text by
               <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
               <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
