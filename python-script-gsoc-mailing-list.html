@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>Minkush Jain</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -78,50 +78,56 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <p>I am applying for Google Summer of Code this year under Debian. I got to know about this programme through my brother, who was selected for GSOC to contribute to a Debian project last year. He really inspired me to apply to GSOC, even though I hate to admit this on social media :P  GSoC is a great opportunity for students like me, to start contributing to open source softwares under the guidance of mentors.</p>
+            <p>I am applying for Google Summer of Code this year under Debian. I got to know about this programme through my brother, who was selected for GSOC to contribute to a Debian project last year. He really inspired me to apply to GSOC, even though I hate to admit this publicly :P  GSoC is a great opportunity for students like me and many others, to start contributing to open source softwares under the guidance of mentors.</p>
 
-            <p>This motivated me to give my best and apply  this year. I decided to work on the project <a href="https://wiki.debian.org/SummerOfCode2018/Projects/WizardForStudentsAndNewInterns">“Wizard/GUI helping students get started”</a> under Debian. It aimed at developing a Python package which would simplify the process for new applicants in the open source community to get the required setup. For example, installing useful development tools on their computer, subscribing to relevant mailing lists. This project specially interests me as I feel it overcomes the challenges I faced when starting with open source contribution and setting up the environment. 
+            <p>This motivated me to give my best and apply  this year. I decided to work on the project <a href="https://wiki.debian.org/SummerOfCode2018/Projects/WizardForStudentsAndNewInterns"><i>Wizard/GUI helping students get started</i></a> under Debian. It aims at developing a tools and packages which would simplify the process for new applicants in the open source community to get the required setup. For example, installing useful development tools on their computer, subscribing to relevant mailing lists. This project specially interests me as I feel it overcomes the challenges I faced when starting with open source contribution and setting up the environment. 
 
             <p>To make a meaningful contribution towards this project, I decided to create  a concise Python script. This script automates the process of subscribing to relevant Debian mailing list by sending your email and then confirming it through a customised reply by mail. The input would be entered by the user in a PyQt Based GUI application. Initially, I wasn’t aware of technologies such as PyQt, but I overcame this barrier when I started working on it. 
 For getting started with GSoC, I would highly recommend reading the <a href="https://danielpocock.com/getting-selected-for-google-summer-of-code-2016">article</a> by Daniel Pocock (Debian mentor), since it personally helped me.
 
-            <p>The blog explains how one could start contributing to the open source community by creating a github account, making a blog, IRC, mailing lists etc.</p>
+            <p>The blog explains how one could start contributing to the open source community by creating a github account, making a blog, joining relevant IRC channels and mailing lists etc.</p>
 
             <h3>GIT</h3>
 
-            <blockquote class="blockquote">Git is the fundamental requirement for collaborating  on open source projects. It’s a “Distributed Version control” which allows people to work on same project and share the code and everyone knows what changes you have made.</blockquote>
+            <blockquote class="blockquote">Git is the fundamental requirement for collaborating  on open source projects. It’s a “Distributed Version control” which allows people to work on same project and share the code and everyone knows what changes you and others have made.</blockquote>
 
-            <p>Initially I was not well versed with Git but during this application period, I learned important concepts by watching youtube videos and reading blogs. It helped me Learn the basic concepts such as repositories, git command prompt, forking, pull requests etc. I also completed a quick 15 minute course on <a href="https://try.github.io">https://try.github.io</a> for learning the command prompts. While learning Git, all the commands and concepts may seem confusing and trivial, but it comes naturally when you start using it for projects.</p>
+            <p>Initially I was not well versed with Git but during this application period, I learned important concepts by watching youtube videos and reading blogs. It helped me Learn the basic concepts such as repositories, git command prompt, forking, pull requests etc. I also completed a quick 15 minute course <a href="https://try.github.io">here</a> for learning basic git commands. While learning Git, all the commands and concepts may seem confusing and tedious, but it comes naturally when you start using it for projects.</p>
 
             <h3 class="section-heading">PROJECT</h3>
 
             <p>The initial contribution I made for the project can be divided into 3 parts for better understanding:
              <ul>
-               <li>Submitting user email onto the website (<a href=“https://lists.debian.org/debian-outreach/”>'Debain-oureach website'</a>)</li>
+               <li>Submitting user email on the <a href=“https://lists.debian.org/debian-outreach/”>Debain-outreach website</a> website</li>
                <li>Confirming Subscription through a mail reply</li>
                <li>Making a Python GUI for the above tasks</li>
             </ul>  
             </p>
+          <p>We would be able to do exactly like the video shown below. Sounds interesting?</p>
+
+<video width="768" height="432" controls>
+  <source src="img/python demo.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
             <h2 class="section-heading">Submitting user email on the website</h2>
-            <p>To subscribe to the mailing list,  I tried to enter my email on <a href=“https://lists.debian.org/debian-outreach/”>'Debain-oureach website'</a> and clicked on the subscribe button through a python script. On successful implementation, the user should get a mail confirming the same.</p>
+            <p>To subscribe to the mailing list,  I have to enter my email on <a href=“https://lists.debian.org/debian-outreach/”>this</a> website and click on the subscribe button through a python script. On successful implementation, the user should get a mail confirming the same.</p>
             
               <img class="img-fluid" src="img/Screenshot (8).png" alt="">
            
             <span class="caption text-muted">This is where the users's email will get entered.</span>
 
-            <p>First, I learned about Python scripts that can be used to automate a process. It involves using “requests” module which combines HTML library to be used in Python code. We don’t have to manually add strings to URLs or encode you POST data. You can easily add headers and form data using Python libraries. It has pre-configured functions that you can access website’s data.</p>
-            <p>Another method that can be used to automate tasks is by using “Selenium Webdriver”. It provides a open source API for automating web applications and can be integrated in your internet browser. But, the major drawback of using it is that it is too slow as compared to importing modules in python.  Python also includes a module named urllib2 but working with it can become cumbersome.</p>
-            <p>The ‘requests’ module can be imported into python library through command prompt by two ways:
+            <p>First, I learned about Python scripts that can be used to automate this process. It involves using python <a href="http://docs.python-requests.org/en/master/">"requests"</a> library which can send custom request (Post/Get) to a webpage. We don’t have to manually add query-strings to URLs or encode your POST data. You can easily add headers and pass data using this library. It has pre-configured functions that help you do that easily.</p>
+            <p>Another method that can be used to automate tasks is by using “Selenium Webdriver”. It provides a open source API for automating actions on website and can be integrated in your internet browser. But, the major drawback of using it is that it is too slow as compared to importing requests library in python. We could have also used urllib2 library but it adds more complexity.</p>
+            <p>The ‘requests’ library can be imported into python through command prompt by two ways:
       <ul>
-                <li><b>$ pipenv install requests</b> : This command uses “pipenv” which is a ‘dependency manager’ for python. It’s a higher level tool which essentially simplifies the process of installing libraries.</br>Use pip to install Pipenv:
+                <li><b>$ pipenv install requests</b> : This command uses “pipenv” which is a ‘dependency manager’ for python. It’s a high level tool which essentially simplifies the process of installing libraries.</br>Use pip to install Pipenv:
           pip install --user pipenv</li></br>
           <li><b>$ pip install requests</b> : ‘pip’ is the default method used to install software packages written in python</li></ul>
-           I personally prefer the 2nd method as it is straightforward and installs basic packages without any hassles.
+           I personally used the 2nd method as it is straightforward and installs basic packages without any hassles.
             </p>
-            <p>Also, I installed Git Bash, a shell which works in the same way as the native Windows' Command Prompt, but it is more powerful and can do additional tasks like search command history, make user-defined functions etc.</p>
-            <p>References:
-                 <a href="http://docs.python-requests.org/en/latest/user/install/">http://docs.python-requests.org/en/latest/user/install/</a>
-                 <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/#virtualenvironments-ref">http://docs.python-guide.org/en/latest/dev/virtualenvs/#virtualenvironments-ref</a>
+            <p>Also, I installed Git Bash, which allows to run Unix commands and also do additional tasks like search command history, make user-defined functions etc.</p>
+  <p>References:</br>
+                 <a href="http://docs.python-requests.org/en/latest/user/install/">Installation of Requests</a></br>
+                 <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/#virtualenvironments-ref">Virtual environment</a>
             </p>
     
             <p>For learning about its functioning , I wrote a code to automate the process for logging into Github account.</p>
@@ -143,7 +149,7 @@ with requests.Session() as c:
 </pre>        
       <p>
 The c.get pings a website for information at that specific url (making request). The web server responds and you can collect the content using the ‘get’ function.
-This could successfully login into my github account. I also tried some other tasks like downloading data (media) from any website.
+This could successfully login into my github account. I also tried some other tasks like downloading data (media) from different websites.
       </p>     
   <p>Next, for the original task, we had to enter your email in this <a href="https://lists.debian.org/debian-outreach/link">link</a>.</p>
   <p>CODE: </br>
@@ -242,14 +248,10 @@ server.quit()
 </code>
 </pre>
 <p>The mail could be sent from any email id regardless of user’s email. After entering the Subject string in the mail, it composes a mail to ‘debian-outreach-request@lists.debian.org’ and eventually the user gets subscribed. I have concatenated the user code with 'CONFIRM' string for the subject of the mail. </p>
-<p>The video shown below demonstrates the program:</p>
+<p>This is just my first blog, I hope I am able to explain about the work I did. The journey till now has been exciting. In a short span of time I have learned about new meaningful technologies. I am discovering my potential and I am very motivated to move along with my work.</p>
+<p><b>Thank you for reading!!</b></p>
 
-<video width="768" height="432" controls>
-  <source src="img/python demo.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p></p>
-          </div>
+           </div>
         </div>
       </div>
     </article>
@@ -287,7 +289,7 @@ Your browser does not support the video tag.
                 </a>
               </li>
             </ul>
-            <p class="copyright text-muted">Copyright &copy; minkush.me 2018</p>
+            
           </div>
         </div>
       </div>
